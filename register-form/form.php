@@ -23,6 +23,7 @@
         </script>
     </head>
     <body>
+        <h3>register form</h3>
         <form action="dataInsert.php" name="signupform" onsubmit="return validation()" method="post">
             <input type="text" name="f_name" placeholder="first name"><br>
             <input type="text" name="l_name" placeholder="last name"><br>
