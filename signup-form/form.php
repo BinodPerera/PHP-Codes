@@ -18,13 +18,12 @@
                     alert("Please fill all fields!");
                     return false;
                 }
-
                 return true;
             }
         </script>
     </head>
     <body>
-        <form action="type-1.php" name="signupform" onsubmit="return validation()" method="post">
+        <form action="dataInsert.php" name="signupform" onsubmit="return validation()" method="post">
             <input type="text" name="f_name" placeholder="first name"><br>
             <input type="text" name="l_name" placeholder="last name"><br>
             <input type="email" name="email" placeholder="email"><br>
