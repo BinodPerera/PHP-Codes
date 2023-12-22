@@ -1,0 +1,31 @@
+<form id="myForm">
+    <input type="text" id="item_name" name="item_name" placeholder="Item Name">
+    <textarea id="item_description" name="item_description" placeholder="Item Description"></textarea>
+    <input type="text" id="item_price" name="item_price" placeholder="Item Price">
+    <input type="text" id="category_id" name="category_id" placeholder="Category ID">
+    <input type="text" id="contact_num" name="contact_num" placeholder="Contact Number">
+    <input type="text" id="location" name="location" placeholder="Location">
+    <input type="file" id="item_image_1" name="item_image_1">
+    <input type="file" id="item_image_2" name="item_image_2">
+    <input type="file" id="item_image_3" name="item_image_3">
+    <button type="button" onclick="submitForm()">Submit</button>
+</form>
+
+<div id="message"></div>
+
+<script>
+function submitForm() {
+    var formData = new FormData(document.getElementById("myForm"));
+    fetch('insert.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("message").innerHTML = data;
+    })
+    .catch(error => {
+        document.getElementById("message").innerHTML = 'Error: ' + error;
+    });
+}
+</script>
