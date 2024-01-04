@@ -1,6 +1,6 @@
 <?php
 
-$conn = new mysqli("localhost", "root", "", "database");
+$conn = new mysqli("localhost", "root", "", "database");    //please create your database connection in this line
 
 if($conn->connect_error){
     die("connection failed! " . $conn->connect_error);
