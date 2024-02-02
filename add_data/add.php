@@ -48,12 +48,13 @@
             $password = $_REQUEST['password'];
             $c_password = $_REQUEST['c_password'];
 
-            $insert_query = "INSERT INTO user(name, email, password) VALUESS('$name','$email','$password')";
+            $insert_query = "INSERT INTO user(name, email, password) VALUES('$name','$email','$password')";
 
-            if ($conn->query($insert_query) === TRUE) {
-                echo "Record inserted successfully";
-            } else {
-                echo "Error: " . $isert_query . "<br>" . $conn->error;
+            if(mysqli_query($conn, $insert_query)){
+                echo "Succesfully inserted!";
+            }
+            else{
+                echo "Error!";
             }
         }
 
