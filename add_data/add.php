@@ -1,16 +1,6 @@
 <html>
     <head>
         <title>Insert Data into database</title>
-
-        <?php
-
-        $conn = new mysqli("localhost","root","","database");
-
-        if($conn->connect_error){
-            die ("Connection failed!".$conn->connect_error);
-        }
-
-        ?>
     </head>
     <body>
         <form action="add.php" method="post">
@@ -42,20 +32,43 @@
 
         <?php
 
+        $conn = new mysqli("localhost","root","","database");
+
+        if($conn->connect_error){
+            die ("Connection failed!".$conn->connect_error);
+        }
+
         if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submitButton"])){
             $name = $_REQUEST['name'];
             $email = $_REQUEST['email'];
             $password = $_REQUEST['password'];
             $c_password = $_REQUEST['c_password'];
+            $count = 0;
 
-            $insert_query = "INSERT INTO user(name, email, password) VALUES('$name','$email','$password')";
+            //checking that email alredy in database or not
+            // $check_email = "SELECT * FROM user WHERE email == '$email'";
+            // $result = $conn->query($check_email);
+            // if($result){
+            //     $count = $result->num_rows;
+            // }
+            // else{
+            //     $message = "This email alredy registered!";
+            // }
 
-            if(mysqli_query($conn, $insert_query)){
-                echo "Succesfully inserted!";
+            if($password == $c_password){
+                //checking both passwords are same or not
+                $insert_user = "INSERT INTO user(name, email, password, roll) VALUES('$name','$email','$password',0)";
+                if ($conn->query($insert_user) === TRUE) {
+                    echo "New user $name added succesfully!";
+                } else {
+                    echo "Error: " . $insert_user . "<br>" . $conn->error;
+                }
             }
             else{
-                echo "Error!";
+                echo "Please sure that your both passwords need to be same.";
             }
+
+            
         }
 
         ?>
