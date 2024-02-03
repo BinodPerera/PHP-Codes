@@ -45,16 +45,6 @@
             $c_password = $_REQUEST['c_password'];
             $count = 0;
 
-            //checking that email alredy in database or not
-            // $check_email = "SELECT * FROM user WHERE email == '$email'";
-            // $result = $conn->query($check_email);
-            // if($result){
-            //     $count = $result->num_rows;
-            // }
-            // else{
-            //     $message = "This email alredy registered!";
-            // }
-
             if($password == $c_password){
                 //checking both passwords are same or not
                 $insert_user = "INSERT INTO user(name, email, password, roll) VALUES('$name','$email','$password',0)";
