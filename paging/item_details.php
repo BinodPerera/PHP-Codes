@@ -13,8 +13,6 @@ if(isset($_GET['item_id'])) {
         die("Connection failed.". $conn->connect_error);
     }
 
-    echo "Hello";
-
     // Retrieve item details from the database based on the ID
     $sql = "SELECT * FROM item WHERE item_id = $itemId";
     $result = $conn->query($sql);
