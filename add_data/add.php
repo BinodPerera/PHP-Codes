@@ -56,9 +56,7 @@
             }
             else{
                 echo "Please sure that your both passwords need to be same.";
-            }
-
-            
+            }  
         }
 
         ?>
