@@ -30,7 +30,7 @@
             }
         ?>
 
-        <?php //name, company, description, image, 
+        <?php
             //advertistment adding request
             if($_SERVER["REQUEST_METHOD"]=="POST" && isset($_POST["addAdvertistment"])){
                 include "pages/add/advertistment.php";
@@ -59,11 +59,12 @@
                                 if (move_uploaded_file($uploadedFile['tmp_name'], $destination)) {
 
                                     //adding other data into database
-                                    $insert_add = "INSERT INTO advertistment(name, company, image, user_id) VALUES('$name','$company','$description','$image')";
+                                    include "db-connection.php";
+                                    $insert_add = "INSERT INTO advertistment(name, company, image, user_id, description) VALUES('$name','$company','$image', 28556, '$description')";
                                     if ($conn->query($insert_add) === TRUE) {
                                         echo "Advertistment added successfully!";
                                     } else {
-                                        echo "Error: " . $insert_add . "<br>" . $conn->error;
+                                        echo "row not added!";
                                     }
 
                                 } else {
