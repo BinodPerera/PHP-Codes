@@ -62,8 +62,9 @@
                                     include "db-connection.php";
                                     $insert_add = "INSERT INTO advertistment(name, company, image, user_id, description) VALUES('$name','$company','$image', 28556, '$description')";
                                     if ($conn->query($insert_add) === TRUE) {
-                                        echo "Advertistment added successfully!";
-                                    } else {
+                                         echo "Advertistment added successfully!";
+                                    } 
+                                    else {
                                         echo "row not added!";
                                     }
 
