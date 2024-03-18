@@ -24,21 +24,7 @@ if($conn->connect_error){
     </table>
 </form>
 
-<?php 
-if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['cat_submit'])){
-    $name = $_REQUEST['cat_name'];
 
-    if(!($name=="")){
-        //insert data 
-        $insert = "INSERT INTO category(name) VALUES('$name')";
-        $run = mysqli_query($conn, $insert);
-        if($run == 1){
-            echo $name." inserted!";
-        }
-    }
-    
-}
-?>
 
 <form method="post">
     <table>
