@@ -11,7 +11,7 @@ if($conn->connect_error){
     Enter category id: <input type="number" name="catId"><br>
     Enter your text in here,<br>
     <textarea name="text" cols="30" rows="10"></textarea>
-    <input type="submit" value="Genarate" name="submit_button">
+    <input type="submit" value="Insert" name="submit_button">
 </form>
 <?php
 if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['submit_button'])){
